@@ -1,4 +1,4 @@
-# OpenShift 1.4 all-in-one installation ansible playbook conf for CentOS 7
+# OpenShift 1.4 3-node installation ansible playbook conf for CentOS 7
 # Mod by Bryan Lee, 2017-04-30
 
 [OSEv3:children]
@@ -8,23 +8,32 @@ nodes
 [OSEv3:vars]
 ansible_ssh_user=root
 deployment_type=origin
+containerized=true
+openshift_install_examples=true
+
+# htpasswd authentication
 openshift_master_identity_providers=[{'name': 'htpasswd_auth', 'login': 'true', 'challenge': 'true', 'kind': 'HTPasswdPasswordIdentityProvider', 'filename': '/etc/origin/master/htpasswd'}]
 
-containerized=true
-
+# release and image tag
 openshift_release=v1.4.1
 openshift_image_tag=v1.4.1
 
-# Master, Infra
-openshift_public_hostname=openshift3.insoft.local
+# router node
+openshift_hosted_router_selector='region=infra'
 
 # Subdomain
-openshift_master_default_subdomain=apps.openshift3.insoft.local
+openshift_master_default_subdomain=apps.insoft.local
 
-openshift_hosted_metrics_deploy=false
+# image registry
+openshift_hosted_router_selector='region=infra'
+
+# pods placement
+osm_default_node_selector='region=primary'
 
 [masters]
-openshift3.insoft.local openshift_schedulable=true
+osmaster.insoft.local openshift_public_hostname="osmaster.insoft.local"
 
 [nodes]
-openshift3.insoft.local openshift_node_labels="{'region': 'infra', 'zone': 'default'}" openshift_schedulable=true
+osmaster.insoft.local openshift_node_labels="{'region': 'infra', 'zone': 'default'}"
+osnode01.insoft.local openshift_node_labels="{'region': 'primary', 'zone': 'default'}" openshift_schedulable=true
+osnode02.insoft.local openshift_node_labels="{'region': 'primary', 'zone': 'default'}" openshift_schedulable=true
