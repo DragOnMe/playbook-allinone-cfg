@@ -1,5 +1,5 @@
 # playbook-allinone-cfg
-Ansible playbook inventory configuration files for installing OpenShift 3 on CentOS 7
+Ansible playbook inventory configuration files for installing OpenShift 3(origin version, release 1.4.1) on CentOS 7.3
  * Single node all-in-one installation
  * 3-node installation
  * pv.json for Persistent Volume Reclaimation
