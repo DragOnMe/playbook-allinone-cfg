@@ -6,12 +6,12 @@
 },
 "spec": {
    "capacity": {
-   "storage": "2Gi"
+   "storage": "400Mi"
    },
    "accessModes": [ "ReadWriteMany" ],
    "nfs": {
       "path": "/mnt/persistent-volumes/pv001",
-      "server": "192.168.10.160"
+      "server": "10.255.10.160"
    },
    "persistentVolumeReclaimPolicy": "Recycle"
    }
