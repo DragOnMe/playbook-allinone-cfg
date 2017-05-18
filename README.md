@@ -10,11 +10,11 @@ Pre-requisites
  * Install related softwares and NFS volumes
  * run: git clone https://github.com/DragOnMe/openshift-ansible.git
  * run: git clone https://github.com/DragOnMe/playbook-allinone-cfg.git
- * and run: nsible-playbook -i ./playbook-allinone-cfg/centos7-3node-playbook.cfg ./openshift-ansible/playbooks/byo/config.yml
+ * and run: ansible-playbook -i ./playbook-allinone-cfg/centos7-3node-playbook.cfg ./openshift-ansible/playbooks/byo/config.yml
 
 # Refer to
 http://bryan.wiki/273
 
 # Good Luck
 
-- - Barracuda -
+  - Barracuda
