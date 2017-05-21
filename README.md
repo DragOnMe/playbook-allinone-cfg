@@ -13,8 +13,10 @@ Pre-requisites
  * run: git clone https://github.com/DragOnMe/playbook-allinone-cfg.git
  * and run: ansible-playbook -i ./playbook-allinone-cfg/centos7-3node-playbook.cfg ./openshift-ansible/playbooks/byo/config.yml
 
-# Refer to
+# Refer to(some useful notes on use cases and operation tips, in Korean)
+http://bryan.wiki/272
 http://bryan.wiki/273
+http://bryan.wiki/275
 
 # Good Luck
 
